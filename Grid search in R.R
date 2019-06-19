@@ -1,8 +1,11 @@
-library('ggplot2')
+library(ggplot2)
+library(caret)
+
 diamonds <- diamonds
 
-summary(diamonds)
-
+# Here we extract all string variables. 
+# Actually variables "cut" and "color" we mostly can consider as factor variables and we can transform it to 
+# numeric factor variables, but only for testing xgb_model it was easier simply exclude this variables.
 diamonds_n <- diamonds[-c(2, 3, 4)]
 cor(x = diamonds_n)
 
@@ -31,10 +34,9 @@ xgb_train_1 = train(
   method = "xgbLinear"
 )
 
+# The best model, which was found with GridSearch
 xgb_train_1$bestTune
 
-# scatter plot of the AUC against max_depth and eta
-ggplot(xgb_train_1$results, aes(x = as.factor(eta), y =, size = ROC, color = ROC)) +
-  geom_point() +
-  theme_bw() +
-  scale_size_continuous(guide = "none")
+# Show dataframe with results of all combinations of parameters
+xgb_train_1$results
+

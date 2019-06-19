@@ -1,3 +1,8 @@
+## This script is using for matching each pair of files in 2 different directories. Matching by content
+# As result function matching() returns files, which can't be compared (one file is in one directory, but
+# another directory doesn't have this file)
+## As result function identity() will create dataset with 2 columns: name of file and TRUE/FALSE if they
+# identical or not
 
 library(data.table)
 

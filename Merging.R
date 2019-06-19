@@ -1,3 +1,8 @@
+## The goal of this script is merging 4 files in one. 
+# In the directory, which should be set up in variable "source" there are a lot of files and each 4 files 
+# has their unique name, ending with numbers plus additional letters. 
+## This scripts is merging each 4 files and write resyult in new file with ending "_full.csv"
+
 library(data.table)
 
 setwd("/Users/avyny/Desktop/specdata")
